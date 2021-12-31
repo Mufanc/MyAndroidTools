@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="10dp"
+    android:orientation="vertical" >
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp" >
+
+        <ImageView android:id="@+id/app_icon"
+            tools:ignore="ContentDescription"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp" >
+
+            <TextView android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="16sp" />
+
+            <TextView android:id="@+id/app_package_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+        <TextView android:id="@+id/app_uid"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/design_default_color_primary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_app_version"
+            android:textColor="@color/design_default_color_primary"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_apk_path"
+            android:textColor="@color/design_default_color_primary"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/app_apk_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:breakStrategy="simple"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

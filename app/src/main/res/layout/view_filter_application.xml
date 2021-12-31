@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/popup_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="5dp" >
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingEnd="15dp" >
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton android:id="@+id/sort_by_appname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_appname"/>
+
+            <RadioButton android:id="@+id/sort_by_update_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_update_time" />
+
+            <RadioButton android:id="@+id/sort_by_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_uid" />
+
+        </RadioGroup>
+
+        <CheckBox android:id="@+id/sort_reverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_reverse"/>
+
+        <CheckBox android:id="@+id/hide_system_apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hide_system_apps"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

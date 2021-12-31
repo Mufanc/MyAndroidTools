@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp" >
+
+    <ImageView android:id="@+id/follow_link"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingHorizontal="10dp"
+        android:src="@drawable/ic_follow_link"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView android:id="@+id/project_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/follow_link"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView android:id="@+id/license"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/follow_link"
+        app:layout_constraintTop_toBottomOf="@id/project_name"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ import mufanc.tools.myandroidtools.utils.ComponentManager
 
 class ComponentListAdapter(
     private val packageName: String,
-    private val componentList: MutableList<CompInfo>
+    private val componentList: List<CompInfo>
 ) : Filterable, RecyclerView.Adapter<ComponentListAdapter.ViewHolder>() {
     private var filteredList: List<CompInfo> = listOf()
 
@@ -27,8 +27,8 @@ class ComponentListAdapter(
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var componentNameHolder: TextView
-        var isEnabledHolder: SwitchMaterial
+        val componentNameHolder: TextView
+        val isEnabledHolder: SwitchMaterial
 
         init {
             ViewComponentListBinding.bind(view).apply {

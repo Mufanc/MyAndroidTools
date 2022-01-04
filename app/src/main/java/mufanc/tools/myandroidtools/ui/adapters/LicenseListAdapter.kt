@@ -2,7 +2,6 @@ package mufanc.tools.myandroidtools.ui.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +16,11 @@ class LicenseListAdapter(
     private val context: Context,
     private val licenseList: Array<String>
 ) : RecyclerView.Adapter<LicenseListAdapter.ViewHolder>() {
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var projectNameHolder: TextView
-        var licenseNameHolder: TextView
-        var followLinkHolder: ImageView
+        val projectNameHolder: TextView
+        val licenseNameHolder: TextView
+        val followLinkHolder: ImageView
 
         init {
             ViewLicenseListBinding.bind(view).apply {

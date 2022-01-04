@@ -19,8 +19,9 @@ import mufanc.tools.myandroidtools.utils.AppInfoHelper.AppInfo
 import mufanc.tools.myandroidtools.utils.FilterHelper
 
 class ApplicationListAdapter(
-    private val appList: MutableList<AppInfo>
+    private val appList: List<AppInfo>
 ) : Filterable, RecyclerView.Adapter<ApplicationListAdapter.ViewHolder>() {
+
     private var filteredList: List<AppInfo> = listOf()
 
     init {
@@ -28,10 +29,10 @@ class ApplicationListAdapter(
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var appIconHolder: ImageView
-        var appUidHolder: TextView
-        var appNameHolder: TextView
-        var packageNameHolder: TextView
+        val appIconHolder: ImageView
+        val appUidHolder: TextView
+        val appNameHolder: TextView
+        val packageNameHolder: TextView
 
         init {
             ViewAppListBinding.bind(view).apply {

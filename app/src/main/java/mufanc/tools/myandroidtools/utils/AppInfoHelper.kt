@@ -7,7 +7,6 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import mufanc.tools.myandroidtools.MyApplication
-import java.lang.RuntimeException
 
 object AppInfoHelper {
     data class AppInfo(
@@ -57,8 +56,9 @@ object AppInfoHelper {
 
     private lateinit var appInfoList: MutableList<AppInfo>
 
-    fun getAppInfoList(reload: Boolean = false): MutableList<AppInfo> {
-        if (AppInfoHelper::appInfoList.isInitialized && !reload) return appInfoList
+    @Synchronized
+    fun getAppInfoList(reload: Boolean = false): List<AppInfo> {
+        if (::appInfoList.isInitialized && !reload) return appInfoList
         appInfoList = mutableListOf()
 
         packageManager.getInstalledPackages(0).forEach { info ->
@@ -67,12 +67,14 @@ object AppInfoHelper {
         return appInfoList
     }
 
+    @Synchronized
     fun getAppInfo(packageName: String): AppInfo {
         return appInfoList.find {
             it.packageName == packageName
         } ?: AppInfo(packageManager, packageManager.getPackageInfo(packageName, 0))
     }
 
+    @Synchronized
     fun updateAppInfo(packageName: String) {
         appInfoList.find {
             it.packageName == packageName
@@ -84,7 +86,7 @@ object AppInfoHelper {
         }
     }
 
-    fun getComponentList(packageName: String, type: Int): MutableList<CompInfo> {
+    fun getComponentList(packageName: String, type: Int): List<CompInfo> {
         return packageManager.getPackageInfo(
             packageName,
             type or PackageManager.MATCH_DISABLED_COMPONENTS
@@ -97,7 +99,7 @@ object AppInfoHelper {
                 else -> throw RuntimeException("Unknown component type!")
             }?.map {
                 CompInfo(packageManager, it)
-            }?.toMutableList() ?: mutableListOf()
+            } ?: listOf()
         }
     }
 }

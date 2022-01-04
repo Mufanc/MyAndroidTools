@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'dev.rikka.tools.refine.gradle-plugin'
 }
 
 android {
@@ -10,8 +11,8 @@ android {
         applicationId "mufanc.tools.myandroidtools"
         minSdk 28
         targetSdk 32
-        versionCode 1
-        versionName "1.0.0.aplha2"
+        versionCode 20220104
+        versionName "1.0.0.aplha4"
         multiDexEnabled false
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

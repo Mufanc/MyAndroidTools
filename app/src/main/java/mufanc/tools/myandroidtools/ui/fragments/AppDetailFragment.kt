@@ -35,7 +35,7 @@ class AppDetailFragment(private val packageName: String) : Fragment() {
             appIcon.setImageDrawable(appInfo.icon)
             appName.text = appInfo.appName
             appPackageName.text = appInfo.packageName
-            appUid.text = "uid: ${appInfo.uid}"
+            appUid.text = "UID: ${appInfo.uid}"
             appApkPath.text = packageInfo.applicationInfo.sourceDir
             appVersion.text = "${packageInfo.versionName} (${packageInfo.longVersionCode})"
 

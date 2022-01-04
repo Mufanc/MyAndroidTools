@@ -2,10 +2,10 @@
 <resources>
     <!-- project | license | link -->
     <string-array name="license_list">
-        <item>AndroidX - Google | Apache Software License 2.0 | https://source.android.com/</item>
-        <item>JetBrains - Kotlin | Apache License (Version 2.0) | https://github.com/JetBrains/kotlin</item>
-        <item>LSPosed - AndroidHiddenApiBypass | Apache License, Version 2.0 | https://github.com/LSPosed/AndroidHiddenApiBypass</item>
+        <item>Google - AndroidX | Apache License 2.0 | https://source.android.com/</item>
+        <item>JetBrains - Kotlin | Apache License 2.0 | https://github.com/JetBrains/kotlin</item>
+        <item>LSPosed - AndroidHiddenApiBypass | Apache License 2.0 | https://github.com/LSPosed/AndroidHiddenApiBypass</item>
         <item>RikkaApps - Shizuku-API | MIT License | https://github.com/RikkaApps/Shizuku-API</item>
-<!--        <item>RikkaApps - Sui | GNU General Public License v3.0 | https://github.com/RikkaApps/Shizuku-API</item>-->
+        <item>RikkaApps - HiddenApiRefinePlugin | MIT License | https://github.com/RikkaApps/HiddenApiRefinePlugin</item>
     </string-array>
 </resources>

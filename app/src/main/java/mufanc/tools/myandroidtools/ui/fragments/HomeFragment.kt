@@ -21,6 +21,9 @@ import mufanc.tools.myandroidtools.utils.SortBy
 import kotlin.concurrent.thread
 
 class HomeFragment : Fragment() {
+
+    private lateinit var binding: FragmentHomeBinding
+
     private var adapter: ApplicationListAdapter? = null
 
     override fun onCreateView(
@@ -30,8 +33,8 @@ class HomeFragment : Fragment() {
     ): View {
         setHasOptionsMenu(true)
 
-        val binding = FragmentHomeBinding.inflate(inflater, container, false)
-        with (binding) {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.apply {
             applist.layoutManager = LinearLayoutManager(
                 context,
                 LinearLayoutManager.VERTICAL,
@@ -45,7 +48,7 @@ class HomeFragment : Fragment() {
                 refresh.isRefreshing = true
                 thread {
                     AppInfoHelper.getAppInfoList(reload).let {
-                        requireActivity().runOnUiThread {
+                        activity?.runOnUiThread {
                             adapter = ApplicationListAdapter(it)
                             applist.adapter = adapter
                             refresh.isRefreshing = false
@@ -54,7 +57,10 @@ class HomeFragment : Fragment() {
                 }
             }
             refresh.setOnRefreshListener { listener(true) }
-            refresh.post { listener() }
+            refresh.post {
+            FilterHelper.queryString = ""
+                listener()
+            }
         }
 
         return binding.root
@@ -70,18 +76,24 @@ class HomeFragment : Fragment() {
         inflater.inflate(R.menu.fragment_home_menu, menu)
 
         menu.findItem(R.id.search_app).actionView
-            .let { it as SearchView }
-            .setOnQueryTextListener(
-                object : SearchView.OnQueryTextListener {
-                    override fun onQueryTextChange(query: String): Boolean {
-                        FilterHelper.queryString = query
-                        adapter?.filter?.filter("")
-                        return true
-                    }
+            .let { it as SearchView }.apply {
+                setOnQueryTextListener(
+                    object : SearchView.OnQueryTextListener {
+                        override fun onQueryTextChange(query: String): Boolean {
+                            FilterHelper.queryString = query
+                            adapter?.filter?.filter("")
+                            return true
+                        }
 
-                    override fun onQueryTextSubmit(p0: String?) = false
+                        override fun onQueryTextSubmit(p0: String?) = false
+                    }
+                )
+                setOnCloseListener {
+                    FilterHelper.queryString = ""
+                    adapter?.filter?.filter("")
+                    false
                 }
-            )
+            }
 
         menu.findItem(R.id.filter_app).also {
             it.setOnMenuItemClickListener {
@@ -93,7 +105,7 @@ class HomeFragment : Fragment() {
                     elevation = contentView.findViewById<CardView>(R.id.popup_card).elevation
                     setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-                    with (binding) {
+                    binding.apply {
                         when (FilterHelper.sortBy) {
                             SortBy.APP_NAME -> sortByAppname.isChecked = true
                             SortBy.UPDATE_TIME -> sortByUpdateTime.isChecked = true
@@ -110,7 +122,7 @@ class HomeFragment : Fragment() {
                         -contentView.measuredWidth+icon.width-20, 0
                     )
                 }.setOnDismissListener {
-                    with (binding) {
+                    binding.apply {
                         FilterHelper.sortBy = when {
                             sortByAppname.isChecked -> SortBy.APP_NAME
                             sortByUpdateTime.isChecked -> SortBy.UPDATE_TIME
@@ -124,6 +136,13 @@ class HomeFragment : Fragment() {
                 }
                 true
             }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.apply {
+            applist.adapter = null
         }
     }
 }

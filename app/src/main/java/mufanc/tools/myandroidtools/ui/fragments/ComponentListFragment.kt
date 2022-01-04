@@ -18,6 +18,9 @@ class ComponentListFragment(
     private val tab: AppDetailActivity.ComponentTab,
     private val index: Int
 ) : Fragment() {
+
+    lateinit var binding: FragmentComponentListBinding
+
     lateinit var adapter: ComponentListAdapter
 
     override fun onCreateView(
@@ -27,9 +30,8 @@ class ComponentListFragment(
     ): View {
         setHasOptionsMenu(true)
 
-        val binding = FragmentComponentListBinding.inflate(inflater)
-
-        with (binding) {
+        binding = FragmentComponentListBinding.inflate(inflater)
+        binding.apply {
             componentList.layoutManager = LinearLayoutManager(
                 context,
                 LinearLayoutManager.VERTICAL,
@@ -75,5 +77,12 @@ class ComponentListFragment(
                     override fun onQueryTextSubmit(p0: String?) = false
                 }
             )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.apply {
+            componentList.adapter = null
+        }
     }
 }

@@ -6,7 +6,12 @@ android {
     compileSdk 32
 
     defaultConfig {
-        minSdk 26
+        minSdk 28
         targetSdk 32
+    }
+
+    dependencies {
+        compileOnly 'dev.rikka.tools.refine:annotation:3.0.3'
+        annotationProcessor 'dev.rikka.tools.refine:annotation-processor:3.0.3'
     }
 }

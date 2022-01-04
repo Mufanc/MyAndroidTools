@@ -1,17 +1,9 @@
 package mufanc.tools.myandroidtools.ui
 
-import android.content.pm.ComponentInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import mufanc.tools.myandroidtools.MyApplication
 import mufanc.tools.myandroidtools.R
 import mufanc.tools.myandroidtools.databinding.ActivityAppDetailBinding
 import mufanc.tools.myandroidtools.ui.adapters.AppDetailViewPagerAdapter

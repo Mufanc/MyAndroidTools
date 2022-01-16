@@ -20,7 +20,7 @@
 
 * 目前仅在 Android R 上测试，可能不兼容低版本 Android 设备
 
-#### TodoList
+### TodoList
 
 - [ ] 应用详情页显示组件数量统计、提取应用图标
 

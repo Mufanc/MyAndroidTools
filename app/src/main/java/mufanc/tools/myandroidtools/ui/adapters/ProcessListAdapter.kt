@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mufanc.tools.myandroidtools.R
 import mufanc.tools.myandroidtools.databinding.ViewProcessListBinding
+import mufanc.tools.myandroidtools.ui.dialogs.ProcessPackagesDialog
 import mufanc.tools.myandroidtools.utils.ProcessInfoHelper.ProcessInfo
 
 class ProcessListAdapter(
@@ -77,6 +78,10 @@ class ProcessListAdapter(
                 processIsolatedHolder.visibility = View.VISIBLE
             } else {
                 processIsolatedHolder.visibility = View.GONE
+            }
+
+            holder.itemView.setOnClickListener {
+                ProcessPackagesDialog(holder.itemView.context, processInfo.packageList).show()
             }
 
             processInfoHolder = processInfo

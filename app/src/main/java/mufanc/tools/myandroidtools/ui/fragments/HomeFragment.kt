@@ -57,10 +57,8 @@ class HomeFragment : Fragment() {
                 }
             }
             refresh.setOnRefreshListener { listener(true) }
-            refresh.post {
             FilterHelper.queryString = ""
-                listener()
-            }
+            listener()
         }
 
         return binding.root

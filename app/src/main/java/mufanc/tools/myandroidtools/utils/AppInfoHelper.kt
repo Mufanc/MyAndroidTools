@@ -71,7 +71,12 @@ object AppInfoHelper {
     fun getAppInfo(packageName: String): AppInfo {
         return appInfoList.find {
             it.packageName == packageName
-        } ?: AppInfo(packageManager, packageManager.getPackageInfo(packageName, 0))
+        } ?: AppInfo(
+            packageManager,
+            packageManager.getPackageInfo(packageName, 0)
+        ).also {
+            appInfoList.add(it)
+        }
     }
 
     @Synchronized

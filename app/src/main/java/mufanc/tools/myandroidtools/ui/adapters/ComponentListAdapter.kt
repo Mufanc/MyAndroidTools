@@ -76,7 +76,12 @@ class ComponentListAdapter(
                     results.add(info)
                 }
             }
-            results.sortBy { it.simpleName }
+            results.sortWith { o1, o2 ->
+                val c1 = o1.enabled
+                val c2 = o2.enabled
+                if (c1 != c2) return@sortWith if (c1) 1 else -1
+                o1.simpleName.compareTo(o2.simpleName)
+            }
             return FilterResults().apply { values = results }
         }
 

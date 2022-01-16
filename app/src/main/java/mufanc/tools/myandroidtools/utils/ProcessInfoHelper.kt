@@ -4,6 +4,7 @@ import android.app.IActivityManager
 import android.graphics.drawable.Drawable
 import android.os.ProcessRef
 import android.os.ServiceManager
+import android.util.Log
 import mufanc.tools.myandroidtools.MyApplication
 import rikka.shizuku.ShizukuBinderWrapper
 
@@ -15,7 +16,8 @@ object ProcessInfoHelper {
         val isolated: Boolean,
         val packageName: String,
         val memory: Long,
-        val icon: Drawable
+        val icon: Drawable,
+        val packageList: List<String>
     )
 
     private lateinit var iam: IActivityManager
@@ -40,7 +42,8 @@ object ProcessInfoHelper {
                     ProcessRef.isIsolated(realUid),
                     it.pkgList[0],
                     iam.getProcessPss(intArrayOf(it.pid))[0],
-                    AppInfoHelper.getAppInfo(it.pkgList[0]).icon
+                    AppInfoHelper.getAppInfo(it.pkgList[0]).icon,
+                    it.pkgList.toList()
                 )
             }
         }

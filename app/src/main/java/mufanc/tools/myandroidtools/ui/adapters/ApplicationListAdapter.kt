@@ -54,8 +54,8 @@ class ApplicationListAdapter(
             return FilterResults().apply { values = results }
         }
 
-        @Suppress("Unchecked_Cast")
         @SuppressLint("NotifyDataSetChanged")
+        @Suppress("Unchecked_Cast")
         override fun publishResults(filter: CharSequence, results: FilterResults) {
             filteredList = results.values as List<AppInfo>
             notifyDataSetChanged()

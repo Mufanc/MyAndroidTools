@@ -12,7 +12,7 @@
     <string name="sort_reverse">逆向排序</string>
     <string name="hide_system_apps">隐藏系统应用</string>
 
-    <!-- Component List -->
+    <!-- Components -->
     <string name="tab_overview">应用详情</string>
     <string name="tab_activities">活动</string>
     <string name="tab_receivers">广播接收器</string>
@@ -24,6 +24,9 @@
     <string name="hint_app_version">版本：</string>
     <string name="hint_apk_path">apk 路径：</string>
     <string name="hint_clipboard_set">文本已复制到剪贴板</string>
+
+    <!-- Process -->
+    <string name="process_packages">包列表</string>
 
     <!-- Misc -->
     <string name="sui_unavailable">Sui 不可用或权限被拒绝</string>

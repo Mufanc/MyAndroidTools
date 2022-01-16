@@ -4,7 +4,6 @@ import android.app.IActivityManager
 import android.graphics.drawable.Drawable
 import android.os.ProcessRef
 import android.os.ServiceManager
-import android.util.Log
 import mufanc.tools.myandroidtools.MyApplication
 import rikka.shizuku.ShizukuBinderWrapper
 
